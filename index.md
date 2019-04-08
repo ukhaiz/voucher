@@ -3,9 +3,8 @@ layout: default
 ---
 
 <img src="https://raw.githubusercontent.com/ukhaiz/voucher/master/miky.png"/>
-# Downlod
 
-<a href="https://raw.githubusercontent.com/ukhaiz/voucher/master/miky.txt"/>
+<a href="https://raw.githubusercontent.com/ukhaiz/voucher/master/miky.txt">DOWNLOAD MICKEY</a>
 ## Header 2
 
 > This is a blockquote following a header.
