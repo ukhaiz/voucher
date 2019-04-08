@@ -1,0 +1,45 @@
+																								<style>
+  .qrcode{
+  height:80px;
+  width:80px;
+  }
+</style>																						
+<?php                          if(substr($validity,-1) == "d"){
+  $validity = "  Masa Aktif ".substr($validity,0,-1)." Hari";
+}else if(substr($validity,-1) == "h"){
+  $validity = "Masa Aktif : ".substr($validity,0,-1)."Jam";
+}
+if(substr($timelimit,-1) == "d" & strlen($timelimit) >3){
+  $timelimit = "Durasi:".((substr($timelimit,0,-1)*7) +  substr($timelimit, 2,1))." HARI";
+}else if(substr($timelimit,-1) == "d"){
+  $timelimit = "Durasi:".substr($timelimit,0,-1)." Hari";
+}else if(substr($timelimit,-1) == "h"){
+  $timelimit = "Durasi:".substr($timelimit,0,-1)."Jam";
+}else if(substr($timelimit,-1) == "w"){
+  $timelimit = "Durasi:".(substr($timelimit,0,-1)*7)." HARI";
+}                            
+if($getprice == "3000"){ $widi = "border:none; width: 350px; height:200px; background: url('https://raw.githubusercontent.com/ukhaiz/img/master/img/Ukhaiz%20Voucher.png') no-repeat; background-size:contain;";} // jika harga == "1000" maka warna = "#01579B"
+elseif($getprice == "1000"){ $widi = "border:none; width: 350px; height:200px; background: url('https://raw.githubusercontent.com/ukhaiz/img/master/img/Ukhaiz%20Voucher.png') no-repeat; background-size:contain;";}
+
+
+else{ $widi = "border:none; width: 350px; height:200px; background: url('https://raw.githubusercontent.com/ukhaiz/img/master/img/Ukhaiz%20Voucher.png') no-repeat; background-size:contain;";}
+?>                                                
+                       
+<table class="voucher" style="border:none; width: 350px; height:200px; background: <?php echo $widi ?> no-repeat; background-size:contain;">
+<tbody>
+ <tr> 
+   <td>  
+   <div style="margin-top: 19px; margin-left:28px;">
+   <b style="font-size:18px"><?= $username ?></b>
+   </div> 
+<div style="color:#fff; margin-top: 8px; margin-left:5px;">
+   <b style="font-size:18px"><?php echo $validity;?></b> 
+   </div>
+<div style="margin-top: 10px; margin-left:227px;">
+   <?=$qrcode ?>
+  
+   </div>
+   </td>
+   </tr>
+   </tbody>
+   </table>	        	        	        
