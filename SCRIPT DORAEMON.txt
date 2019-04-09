@@ -1,0 +1,59 @@
+						<style>
+  .qrcode{
+  height:80px;
+  width:80px;
+  }
+</style>																								<?php
+if(substr($validity,-1) == "d"){
+  $validity = "AKTIF:".substr($validity,0,-1)."HARI";
+}else if(substr($validity,-1) == "h"){
+  $validity = "AKTIF:".substr($validity,0,-1)."JAM";
+}
+if(substr($timelimit,-1) == "d" & strlen($timelimit) >3){
+  $timelimit = "Durasi:".((substr($timelimit,0,-1)*7) +  substr($timelimit, 2,1))."HARI";
+}else if(substr($timelimit,-1) == "d"){
+  $timelimit = "Durasi:".substr($timelimit,0,-1)."HARI";
+}else if(substr($timelimit,-1) == "h"){
+  $timelimit = "Durasi:".substr($timelimit,0,-1)."JAM";
+}else if(substr($timelimit,-1) == "w"){
+  $timelimit = "Durasi:".(substr($timelimit,0,-1)*7)."HARI";
+}	            	            
+
+if($getprice == "3000"){ $widi = "border:none; width: 350px; height:200px; background: url('https://raw.githubusercontent.com/ukhaiz/img/master/widi3rb.png') no-repeat; background-size:contain;";} 
+elseif($getprice == "2000"){ $widi = "border:none; width: 350px; height:200px; background: url('https://raw.githubusercontent.com/ukhaiz/img/master/widi2rb.png') no-repeat; background-size:contain;";}
+elseif($getprice == "5000"){ $widi = "border:none; width: 350px; height:200px; background: url('https://raw.githubusercontent.com/ukhaiz/img/master/widi5rb.png') no-repeat; background-size:contain;";}
+elseif($getprice == "15000"){ $widi = "border:none; width: 350px; height:200px; background: url('https://raw.githubusercontent.com/ukhaiz/img/master/widi15rb.png') no-repeat; background-size:contain;";}
+else{ $widi = "border:none; width: 350px; height:200px; background: url('https://raw.githubusercontent.com/ukhaiz/img/master/widi15rb.png') no-repeat; background-size:contain;";}
+?>        
+<tr>
+<td style="color:#666;border-collapse: collapse;" valign="top">
+<table class="voucher" style="border:none; width: 350px; height:200px; background: <?php echo $widi ?> no-repeat; background-size:contain;">
+<tbody>
+<tr>
+<td style="width:118px"valign="top" >
+<div style="clear:both;color:red;margin-top:76px;margin-bottom:10px;">
+<?php if($v_opsi=='up'){ ?>
+<?php }else{ ?>
+<div style=" margin-left:28px; ;font-weight:bold;font-size:15px;"><?php echo $username;?></div>
+<?php } ?>
+</div>
+<div style=" margin-left:27px; ;font-weight:bold;font-size:9px;color:#fff;"><?php echo $validity;?></div>
+</td>
+<td style="width:100px;text-align:left;">
+<td>
+<div style="margin-bottom: 10px; margin-left:55px;margin-top:10px; ">
+<img style="height:35px; width:160px;" src="<?php echo $logo;?>">
+</div>
+<div style="margin-top:30px; ">
+<div style=" margin-left:98px;">
+<?= $qrcode ?>
+</div>
+<!-- NUM -->
+<div style="margin-bottom: 10px; margin-left:195px;margin-top:5px;color:#fff;font-size:10px;padding:0px;"><?php echo " [$num]";?></div> </div>
+<!-- NUM -->
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>	        	        	        	        	        
